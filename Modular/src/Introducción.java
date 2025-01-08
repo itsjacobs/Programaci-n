@@ -33,8 +33,7 @@ public class Introducción {
                 System.out.println("Introduce 2 numeros");
                 int a = sc.nextInt();
                 int b = sc.nextInt();
-                int resultado = sumar(a, b);
-                System.out.println(resultado);
+                System.out.println(sumar(a,b));
                 break;
             case 2:
                 restar();
@@ -52,6 +51,5 @@ public class Introducción {
     }
     public static void main(String[] args) {
         selector();
-
     }
 }
