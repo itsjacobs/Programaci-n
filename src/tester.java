@@ -37,6 +37,7 @@ public class tester {
                     break;
                 case 5:
                     System.out.println("Introduce la comunidad autonoma de la cual quieres saber la playa");
+                    sc.nextLine();
                     String opc4 = sc.nextLine();
                     playas.informacionPlayas(opc4);
                     break;

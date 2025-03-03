@@ -26,7 +26,7 @@ public class gestion {
             }
         }
         for (int i = 0; i < lista.length; i++){
-            lista[i].setId(i+1);
+            lista[i].setId(i);
         }
     }
     public void mostrarArrayDePlayas(){
@@ -86,6 +86,7 @@ public class gestion {
             if (eleccion.equals("cala")){
                 System.out.println("responde si, si la cala no es apta para minusvalidos" +
                         "responde no, si la cala no es apta para minusvalidos");
+                sc.nextLine();
                 String respuesta = sc.nextLine();
                 if (respuesta.equals("si")){
                     minus = true;
@@ -98,7 +99,7 @@ public class gestion {
                         System.out.println(lista[i].toString());
                     }
                 }
-                if (lista  != null){
+                if (lista != null){
                     System.out.println("Todas las playas estan ocupadas");
                 }
             } else if (eleccion.equals("playa grande")){
@@ -129,8 +130,10 @@ public class gestion {
         int index = 0;
         for (int i = 0; i < lista.length; i++){
             if (lista[i].getLongitud() > longitud){
-                listaAux[index] = lista[i];
-                index++;
+                if (index < listaAux.length){
+                    listaAux[index] = lista[i];
+                    index++;
+                }
             }
         }
         for (int i = 0; i < listaAux.length; i++){
