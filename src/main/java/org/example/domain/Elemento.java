@@ -15,6 +15,12 @@ public class Elemento {
         this.palabra = palabra;
         this.categoria = categoria;
     }
+    public Elemento (String Linea){
+        String[] token = Linea.split(";");
+        id = token[0];
+        palabra = token[1];
+        categoria = token[2];
+    }
     public Elemento(){
         Random rnd = new Random();
         this.id = String.valueOf(rnd.nextInt(0,100));
@@ -59,11 +65,9 @@ public class Elemento {
 
     @Override
     public String toString() {
-        return "Elemento{" +
-                "id='" + id + '\'' +
-                ", palabra='" + palabra + '\'' +
-                ", categoria='" + categoria + '\'' +
-                '}';
+        StringBuilder SB = new StringBuilder();
+        SB.append("Elemento{\n").append("ID: " + id+"\n").append("Palabra: " + palabra+"\n").append("Categoria: " + categoria+"\n").append("\n");
+        return SB.toString();
     }
 
 

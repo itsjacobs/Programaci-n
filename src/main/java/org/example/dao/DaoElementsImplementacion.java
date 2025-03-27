@@ -40,6 +40,21 @@ public class DaoElementsImplementacion implements DaoElementos {
     }
 
     @Override
+    public List<Elemento> getListaElementos() {
+        return lista.getListaElementos();
+    }
+
+    @Override
+    public void modificarLista(List<Elemento> listaElementos) {
+        lista.modificarLista(listaElementos);
+    }
+
+    @Override
+    public List<Elemento> getElementos() {
+        return lista.getListaElementos();
+    }
+
+    @Override
     public List<Elemento> getListaCategoria(String categoria) {
         List<Elemento> elementosCategoria = null;
         for (Elemento elemento : lista.getListaElementos()) {

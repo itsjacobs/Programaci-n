@@ -20,9 +20,14 @@ public class Elementos{
         public List<Elemento> getListaElementos() {
             return listaElementos;
         }
+
         public void vaciarListaElementos(){
             listaElementos.clear();
         }
+    public void modificarLista(List<Elemento> listaElementos) {
+        vaciarListaElementos();
+        this.listaElementos.addAll(listaElementos);
+    }
 
     @Override
     public String toString() {

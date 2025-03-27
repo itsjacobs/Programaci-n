@@ -12,13 +12,14 @@ public interface GestionElementos {
     public List<Elemento> listar(String categoria);
     public List<Elemento> listarElementos(boolean ascendente);
     public List<Elemento> getListaElementosCategoria();
+    public String getPalabraAdivinar(String categoria);
     public void eliminarElemento(Elemento Elemento);
     public void crearFicheros()throws IOException;
-    public boolean cargarFichero() throws IOException;
+    public boolean leerFichero(String fichero) throws IOException;
     public boolean escribirFichero();
     public boolean escribirFicheroBinario();
     public boolean cargarFicheroBinario();
     public boolean eliminarElemento(String id);
     //public boolean modificarCategoria(String id, String categoria) throws CategoriaException;
-    public boolean modificarElemento(String id, String incognita);
+    public boolean modificarElemento(String id, String palabra);
 }
