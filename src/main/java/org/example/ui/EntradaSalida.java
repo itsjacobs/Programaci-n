@@ -20,10 +20,7 @@ public class EntradaSalida {
         servicio = new GestionElementosImplementacion();
     }
     public void mostrarElementos() {
-        List<Elemento> lista = servicio.getListaElementos();
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println("Elemento: " + i + ": "+ lista.get(i));
-        }
+        mostrarListaElementos(servicio);
     }
     public static void mostrarListaElementos(GestionElementos ge) {
         List<Elemento> lista = ge.getListaElementos();

@@ -2,8 +2,9 @@ package org.example.commons;
 
 
 public class Constantes {
-    public static final String[] CATEGORIAS = {"Peliculas","Series","Zodiaco","Pokemon"};
     public static final String AHORCADO_FILE = "ahorcado.txt";
+    public static final String BIENVENIDA = "Vamos a mostrar el diccionario";
+    public static final String[] CATEGORIAS = {"Peliculas","Series","Zodiaco","Pokemon"};
     public static final String MENU= "-----------------------------------" +
                                     "\nMenú" +
                                     "\n-----------------------------------"+

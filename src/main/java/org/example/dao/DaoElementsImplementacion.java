@@ -20,6 +20,7 @@ public class DaoElementsImplementacion implements DaoElementos {
     public void setLista(Elementos lista) {
         this.lista = lista;
     }
+
     @Override
     public boolean isEmptyListaElementos() {
         boolean a = false;
@@ -110,7 +111,7 @@ public class DaoElementsImplementacion implements DaoElementos {
         return a;
     }
     @Override
-    public void eliminarElemento(Elemento elemento) {
+    public void eliminarElemento(Elemento elemento){
         lista.getListaElementos().remove(elemento);
     }
 

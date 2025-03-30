@@ -66,7 +66,7 @@ public class Elemento {
     @Override
     public String toString() {
         StringBuilder SB = new StringBuilder();
-        SB.append("Elemento{\n").append("ID: " + id+"\n").append("Palabra: " + palabra+"\n").append("Categoria: " + categoria+"\n").append("\n");
+        SB.append("\n--------------------------------------------\n").append("Elemento[\n").append("ID: " + id+"\n").append("Palabra: " + palabra+"\n").append("Categoria: " + categoria+"]\n").append("\n");
         return SB.toString();
     }
 

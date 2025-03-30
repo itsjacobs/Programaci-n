@@ -3,7 +3,6 @@ package org.example.service;
 import org.example.commons.Constantes;
 import org.example.dao.DaoElementos;
 import org.example.dao.DaoElementsImplementacion;
-import org.example.dao.Elementos;
 import org.example.dao.Ficheros;
 import org.example.domain.Elemento;
 
@@ -34,7 +33,7 @@ public class GestionElementosImplementacion implements GestionElementos {
 
     @Override
     public boolean insertarElemento(Elemento Elemento) {
-        return daoElementos.getElementos().add(Elemento);
+        return getListaElementos().add(Elemento);
     }
 
     @Override
@@ -50,13 +49,12 @@ public class GestionElementosImplementacion implements GestionElementos {
 
     @Override
     public List<Elemento> listarElementos(boolean ascendente) {
-
         return List.of();
     }
 
     @Override
     public List<Elemento> getListaElementosCategoria() {
-        return daoElementos.getElementos();
+        return daoElementos.getListaElementos();
     }
 
     @Override
@@ -67,12 +65,7 @@ public class GestionElementosImplementacion implements GestionElementos {
 
     @Override
     public void eliminarElemento(Elemento Elemento) {
-        daoElementos.getElementos().remove(Elemento);
-    }
-
-    @Override
-    public void crearFicheros() throws IOException {
-
+        daoElementos.getListaElementos().remove(Elemento);
     }
 
     @Override
@@ -82,13 +75,18 @@ public class GestionElementosImplementacion implements GestionElementos {
         return !lista.isEmpty();
     }
 
+
     @Override
     public boolean escribirFichero() {
         boolean a = false;
-        //if (Ficheros.escribirFichero(Constantes.AHORCADO_FILE,)){
+        if (Ficheros.escribirFichero(Constantes.AHORCADO_FILE,daoElementos.getElementos())){
             a = true;
-        //}
+        }
         return a;
+    }
+
+    @Override
+    public void crearFicheros() throws IOException {
     }
 
     @Override

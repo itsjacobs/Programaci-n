@@ -1,19 +1,18 @@
 package org.example.dao;
 
-import org.example.commons.Constantes;
 import org.example.domain.Elemento;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Ficheros {
-    public static void escribirFichero(String fichero, List<Elemento> lista){
+    public static boolean escribirFichero(String fichero, List<Elemento> lista){
         PrintWriter escribir = null;
+        boolean a = false;
         try{
             escribir = new PrintWriter(fichero);
         }
@@ -22,8 +21,10 @@ public class Ficheros {
         }
         for (int i = 0; i < lista.size(); i++) {
             escribir.println(lista.get(i).toStringFichero());
+            a = true;
         }
         escribir.close();
+        return a;
     }
     public static List<Elemento> leerFichero(String fichero){
         List<Elemento> lista = new ArrayList<Elemento>();
