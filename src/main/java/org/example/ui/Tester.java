@@ -6,6 +6,11 @@ import org.example.service.GestionElementosImplementacion;
 
 import java.util.Scanner;
 
+//Excepcion no hay palabras de esta categoría y que pare si exc HayCaracterEspecial
+//añadir elementos en todas las categorias
+//eliminar elemento
+//empezar con juego
+
 public class Tester {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -13,13 +18,11 @@ public class Tester {
         GestionElementos ge = new GestionElementosImplementacion();
         EntradaSalida.mostrarListaElementos(ge);
         System.out.println(ge.isEmptyElementosList());
-       // ge.insertarElemento(EntradaSalida.insertarElemento());
+        ge.insertarElemento(EntradaSalida.insertarElemento());
         EntradaSalida.mostrarListaElementos(ge);
-        System.out.println("asdddddddddddddddddddddddddddddddddddd");
         ge.listar("Zodiaco");
         System.out.println(ge.getListaElementosCategoria("Zodiaco"));
         System.out.println(ge.getPalabraAdivinar("Zodiaco"));
-        System.out.println(ge.eliminarElemento(sc.nextLine()));
+        ge.eliminarElemento(sc.nextLine());
     }
 }
-
