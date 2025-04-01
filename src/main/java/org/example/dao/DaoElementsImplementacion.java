@@ -2,6 +2,7 @@ package org.example.dao;
 
 import org.example.domain.Elemento;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DaoElementsImplementacion implements DaoElementos {
@@ -57,7 +58,7 @@ public class DaoElementsImplementacion implements DaoElementos {
 
     @Override
     public List<Elemento> getListaCategoria(String categoria) {
-        List<Elemento> elementosCategoria = null;
+        List<Elemento> elementosCategoria = new ArrayList<>();
         for (Elemento elemento : lista.getListaElementos()) {
             if (elemento.getCategoria().equals(categoria)) {
                 elementosCategoria.add(elemento);

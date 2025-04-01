@@ -11,7 +11,7 @@ public class Juego {
     public int getVidas() {
         return vidas;
     }
-    public void setVidas(int vidas) {
+    public void setVidas(int vidas){
         this.vidas = vidas;
     }
     //public String validarLetras(String palabra){

@@ -33,12 +33,13 @@ public class Ficheros {
             Scanner sc = new Scanner(new File(fichero));
             while(sc.hasNextLine()){
                 Linea = sc.nextLine();
+                lista.add(new Elemento(Linea));
             }
         }
         catch (FileNotFoundException e){
             System.out.println("No se puede leer el fichero, no se ha encontrado");
         }
-        lista.add(new Elemento(Linea));
+
 
         return lista;
     }

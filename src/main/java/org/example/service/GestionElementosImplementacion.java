@@ -5,8 +5,9 @@ import org.example.dao.DaoElementos;
 import org.example.dao.DaoElementsImplementacion;
 import org.example.dao.Ficheros;
 import org.example.domain.Elemento;
-
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -38,43 +39,35 @@ public class GestionElementosImplementacion implements GestionElementos {
 
     @Override
     public List<Elemento> listar(String categoria) {
-        List<Elemento> elementosCategoria = null;
+        List<Elemento> elementosCategoria = new ArrayList();
         for (Elemento elemento : daoElementos.getElementos()) {
             if (elemento.getCategoria().equalsIgnoreCase(categoria)) {
                 elementosCategoria.add(elemento);
             }
         }
+        System.out.println(elementosCategoria.size());
         return elementosCategoria;
     }
 
     @Override
     public List<Elemento> listarElementos(boolean ascendente) {
-        return List.of();
+        List<Elemento> elementosCategoria = getListaElementos();
+        if(ascendente){
+            Collections.sort(elementosCategoria);
+        }
+        return null;
     }
 
     @Override
-    public List<Elemento> getListaElementosCategoria() {
-        return daoElementos.getListaElementos();
+    public List<Elemento> getListaElementosCategoria(String categoria) {
+        return daoElementos.getListaCategoria(categoria);
     }
 
     @Override
     public String getPalabraAdivinar(String categoria) {
         Random rnd = new Random();
-        return daoElementos.getListaCategoria(categoria).get(rnd.nextInt(getListaElementosCategoria().size())).getPalabra();
+        return daoElementos.getListaCategoria(categoria).get(rnd.nextInt(getListaElementos().size())).getPalabra();
     }
-
-    @Override
-    public void eliminarElemento(Elemento Elemento) {
-        daoElementos.getListaElementos().remove(Elemento);
-    }
-
-    @Override
-    public boolean leerFichero(String fichero) throws IOException {
-        List<Elemento> lista= Ficheros.leerFichero(fichero);
-        daoElementos.modificarLista(lista);
-        return !lista.isEmpty();
-    }
-
 
     @Override
     public boolean escribirFichero() {
@@ -98,6 +91,17 @@ public class GestionElementosImplementacion implements GestionElementos {
     public boolean cargarFicheroBinario() {
         return false;
     }
+    @Override
+    public boolean modificarElemento(String id, String palabra) {
+        boolean a = false;
+        for (Elemento elemento : daoElementos.getElementos()) {
+            if (elemento.getId().equalsIgnoreCase(id)) {
+                elemento.setPalabra(palabra);
+                a = true;
+            }
+        }
+        return a;
+    }
 
     @Override
     public boolean eliminarElemento(String id) {
@@ -111,15 +115,9 @@ public class GestionElementosImplementacion implements GestionElementos {
         return a;
     }
 
+
     @Override
-    public boolean modificarElemento(String id, String palabra) {
-        boolean a = false;
-        for (Elemento elemento : daoElementos.getElementos()) {
-            if (elemento.getId().equalsIgnoreCase(id)) {
-                elemento.setPalabra(palabra);
-                a = true;
-            }
-        }
-        return a;
+    public void eliminarElemento(Elemento Elemento) {
+        daoElementos.getListaElementos().remove(Elemento);
     }
 }

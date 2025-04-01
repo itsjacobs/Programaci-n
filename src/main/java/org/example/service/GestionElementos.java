@@ -11,11 +11,10 @@ public interface GestionElementos {
     public boolean insertarElemento(Elemento Elemento);
     public List<Elemento> listar(String categoria);
     public List<Elemento> listarElementos(boolean ascendente);
-    public List<Elemento> getListaElementosCategoria();
+    public List<Elemento> getListaElementosCategoria(String categoria);
     public String getPalabraAdivinar(String categoria);
     public void eliminarElemento(Elemento Elemento);
     public void crearFicheros()throws IOException;
-    public boolean leerFichero(String fichero) throws IOException;
     public boolean escribirFichero();
     public boolean escribirFicheroBinario();
     public boolean cargarFicheroBinario();

@@ -6,7 +6,6 @@ import org.example.commons.ExcepcionCaracterEspecial;
 import org.example.domain.Elemento;
 import org.example.service.GestionElementos;
 import org.example.service.GestionElementosImplementacion;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,7 +24,7 @@ public class EntradaSalida {
     public static void mostrarListaElementos(GestionElementos ge) {
         List<Elemento> lista = ge.getListaElementos();
         for (int i = 0; i < lista.size(); i++) {
-            System.out.println("Elemento: " + i + ": "+ lista.get(i));
+            System.out.println(lista.get(i));
         }
     }
     public static Elemento insertarElemento(){
@@ -40,6 +39,8 @@ public class EntradaSalida {
             System.out.println(e.getMessage());
         }
         String categoria = sc.nextLine();
-        return new Elemento(id,palabra,categoria);
+
+        Elemento elemento = new Elemento(id,palabra,categoria);
+        return elemento;
     }
 }

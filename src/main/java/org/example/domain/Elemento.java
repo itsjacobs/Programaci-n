@@ -5,7 +5,7 @@ import org.example.commons.Constantes;
 
 import java.util.Random;
 
-public class Elemento {
+public class Elemento implements Comparable<Elemento>{
     private String id;
     private String palabra;
     private String categoria;
@@ -31,7 +31,7 @@ public class Elemento {
         else if (categoria.equalsIgnoreCase("Pokemon")){
             this.palabra = new Faker().pokemon().name();
         }
-        else if(categoria.equalsIgnoreCase("personajes")){
+        else if(categoria.equalsIgnoreCase("Zodiaco")){
             this.palabra = new Faker().zodiac().sign();
         }
         else{
@@ -66,7 +66,11 @@ public class Elemento {
     @Override
     public String toString() {
         StringBuilder SB = new StringBuilder();
-        SB.append("\n--------------------------------------------\n").append("Elemento[\n").append("ID: " + id+"\n").append("Palabra: " + palabra+"\n").append("Categoria: " + categoria+"]\n").append("\n");
+        SB.append("--------------------------------------------\n");
+        SB.append("ID: " + id+"\n");
+        SB.append("Palabra: " + palabra+"\n");
+        SB.append("Categoria: " + categoria+"\n");
+        SB.append("\n");
         return SB.toString();
     }
 
@@ -75,5 +79,8 @@ public class Elemento {
         StringBuilder SB = new StringBuilder();
         SB.append(id).append(";").append(palabra).append(";").append(categoria);
         return SB.toString();
+    }
+    public int compareTo(Elemento e){
+        return this.id.compareTo(e.id);
     }
 }
