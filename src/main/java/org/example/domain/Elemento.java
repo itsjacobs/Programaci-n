@@ -25,8 +25,9 @@ public class Elemento implements Comparable<Elemento>{
         Random rnd = new Random();
         this.id = String.valueOf(rnd.nextInt(0,100));
         this.categoria = Constantes.CATEGORIAS[rnd.nextInt(0,Constantes.CATEGORIAS.length)];
-        if (categoria.equalsIgnoreCase("Peliculas")){
-            this.palabra = new Faker().movie().name();
+        this.palabra = palabra;
+        if (categoria.equalsIgnoreCase("Futbol")){
+            this.palabra = new Faker().football().teams();
         }
         else if (categoria.equalsIgnoreCase("Pokemon")){
             this.palabra = new Faker().pokemon().name();
@@ -35,7 +36,7 @@ public class Elemento implements Comparable<Elemento>{
             this.palabra = new Faker().zodiac().sign();
         }
         else{
-            this.palabra = new Faker().show().play();
+            this.palabra = new Faker().leagueOfLegends().champion();
         }
     }
 

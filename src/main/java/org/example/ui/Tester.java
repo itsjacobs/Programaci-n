@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 //Excepcion no hay palabras de esta categoría y que pare si exc HayCaracterEspecial
 //añadir elementos en todas las categorias
-//eliminar elemento
 //empezar con juego
 
 public class Tester {
@@ -24,5 +23,8 @@ public class Tester {
         System.out.println(ge.getListaElementosCategoria("Zodiaco"));
         System.out.println(ge.getPalabraAdivinar("Zodiaco"));
         ge.eliminarElemento(sc.nextLine());
+        ge.escribirFichero();
+        EntradaSalida.mostrarListaElementos(ge);
+
     }
 }

@@ -107,10 +107,10 @@ public class GestionElementosImplementacion implements GestionElementos {
     @Override
     public boolean eliminarElemento(String id) {
         boolean a = false;
-        for (Elemento elemento : daoElementos.getListaElementos()) {
-            if (elemento.getId().equals(id)) {
-                daoElementos.getElementos().remove(elemento);
-                a = true;
+        List<Elemento> lista = getListaElementos();
+        for (int i = 0; i < lista.size(); i++) {
+            if(lista.get(i).getId().equalsIgnoreCase(id)){
+                lista.remove(i);
             }
         }
         return a;

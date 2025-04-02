@@ -16,14 +16,47 @@ public class Elementos {
     }
 
     public Elementos() {
+        Random rnd = new Random();
         File fichero = new File(Constantes.AHORCADO_FILE);
         if (fichero.exists()) {
             listaElementos = Ficheros.leerFichero(Constantes.AHORCADO_FILE);
         } else {
             listaElementos = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                listaElementos.add(new Elemento());
+            String categoria = null;
+            for (int i = 0; i < 30; i++) {
+                categoria = "Futbol";
+                String id = String.valueOf(rnd.nextInt(0, 100));
+                String palabra = new Faker().football().teams();
+
+                Elemento nuevoElemento = new Elemento(id, palabra, categoria);
+
+                boolean duplicado = false;
+                for (int j = 0; j < i; j++) {
+                    if (listaElementos.get(j).getPalabra().equalsIgnoreCase(palabra)) {
+                        duplicado = true;
+                        break;
+                    }
+                }
+
+                if(!duplicado) {
+                    listaElementos.add(nuevoElemento);
+                } else {
+                    i--;
+                }
             }
+
+            /*for(int i = 5;i<=9;i++){
+                categoria = "Pokemon";
+                listaElementos.add(new Elemento(String.valueOf(rnd.nextInt(0,100)), new Faker().pokemon().name(), categoria));
+            }
+            for(int i = 10;i<=14;i++){
+                categoria = "Zodiaco";
+                listaElementos.add(new Elemento(String.valueOf(rnd.nextInt(0,100)), new Faker().zodiac().sign(), categoria));
+            }
+            for(int i = 15;i<=19;i++){
+                categoria = "LOL";
+                listaElementos.add(new Elemento(String.valueOf(rnd.nextInt(0,100)), new Faker().leagueOfLegends().champion(),categoria));
+            }*/
         }
     }
 
