@@ -65,7 +65,6 @@ public class GestionElementosImplementacion implements GestionElementos {
 
     @Override
     public String getPalabraAdivinar(String categoria) {
-
         Random rnd = new Random();
         return daoElementos.getListaCategoria(categoria).get(rnd.nextInt(0,getListaElementosCategoria(categoria).size())).getPalabra();
     }

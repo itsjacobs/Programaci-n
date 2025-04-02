@@ -22,42 +22,107 @@ public class Elementos {
             listaElementos = Ficheros.leerFichero(Constantes.AHORCADO_FILE);
         } else {
             listaElementos = new ArrayList<>();
-            String categoria = null;
-            for (int i = 0; i < 30; i++) {
-                categoria = "Futbol";
-                String id = String.valueOf(rnd.nextInt(0, 100));
+            String categoria = "Futbol";
+            for (int i = 0; i <= 4; i++) {
+                String id = String.valueOf(rnd.nextInt(1, 100));
                 String palabra = new Faker().football().teams();
 
                 Elemento nuevoElemento = new Elemento(id, palabra, categoria);
 
-                boolean duplicado = false;
-                for (int j = 0; j < i; j++) {
-                    if (listaElementos.get(j).getPalabra().equalsIgnoreCase(palabra)) {
-                        duplicado = true;
-                        break;
+                boolean duplicado;
+                do {
+                    duplicado = false;
+                    for (int j = 0; j < i; j++) {
+                        if (listaElementos.get(j).getPalabra().equalsIgnoreCase(palabra) || listaElementos.get(j).getId().equalsIgnoreCase(id)) {
+                            duplicado = true;
+                            break;
+                        }
                     }
-                }
+                    if (duplicado) {
+                        id = String.valueOf(rnd.nextInt(0, 100));
+                        palabra = new Faker().football().teams();
+                        nuevoElemento = new Elemento(id, palabra, categoria);
+                    }
+                } while (duplicado);
 
-                if(!duplicado) {
-                    listaElementos.add(nuevoElemento);
-                } else {
-                    i--;
-                }
+                listaElementos.add(nuevoElemento);
             }
+            categoria = "Pokemon";
+            for (int i = 5; i <= 9; i++) {
+                String id = String.valueOf(rnd.nextInt(1, 100));
+                String palabra = new Faker().pokemon().name();
 
-            /*for(int i = 5;i<=9;i++){
-                categoria = "Pokemon";
-                listaElementos.add(new Elemento(String.valueOf(rnd.nextInt(0,100)), new Faker().pokemon().name(), categoria));
+                Elemento nuevoElemento = new Elemento(id, palabra, categoria);
+
+                boolean duplicado;
+                do {
+                    duplicado = false;
+                    for (int j = 0; j < i; j++) {
+                        if (listaElementos.get(j).getPalabra().equalsIgnoreCase(palabra) || listaElementos.get(j).getId().equalsIgnoreCase(id)) {
+                            duplicado = true;
+                            break;
+                        }
+                    }
+                    if (duplicado) {
+                        id = String.valueOf(rnd.nextInt(0, 100));
+                        palabra = new Faker().pokemon().name();
+                        nuevoElemento = new Elemento(id, palabra, categoria);
+                    }
+                } while (duplicado);
+
+                listaElementos.add(nuevoElemento);
             }
-            for(int i = 10;i<=14;i++){
-                categoria = "Zodiaco";
-                listaElementos.add(new Elemento(String.valueOf(rnd.nextInt(0,100)), new Faker().zodiac().sign(), categoria));
+            categoria = "LOL";
+            for (int i = 10; i <= 14; i++) {
+                String id = String.valueOf(rnd.nextInt(1, 100));
+                String palabra = new Faker().leagueOfLegends().champion();
+
+                Elemento nuevoElemento = new Elemento(id, palabra, categoria);
+
+                boolean duplicado;
+                do {
+                    duplicado = false;
+                    for (int j = 0; j < i; j++) {
+                        if (listaElementos.get(j).getPalabra().equalsIgnoreCase(palabra) || listaElementos.get(j).getId().equalsIgnoreCase(id)) {
+                            duplicado = true;
+                            break;
+                        }
+                    }
+                    if (duplicado) {
+                        id = String.valueOf(rnd.nextInt(0, 100));
+                        palabra = new Faker().leagueOfLegends().champion();
+                        nuevoElemento = new Elemento(id, palabra, categoria);
+                    }
+                } while (duplicado);
+
+                listaElementos.add(nuevoElemento);
             }
-            for(int i = 15;i<=19;i++){
-                categoria = "LOL";
-                listaElementos.add(new Elemento(String.valueOf(rnd.nextInt(0,100)), new Faker().leagueOfLegends().champion(),categoria));
-            }*/
-        }
+            categoria = "Zodiaco";
+            for (int i = 15; i <= 19; i++) {
+                String id = String.valueOf(rnd.nextInt(1, 100));
+                String palabra = new Faker().zodiac().sign();
+
+                Elemento nuevoElemento = new Elemento(id, palabra, categoria);
+
+                boolean duplicado;
+                do {
+                    duplicado = false;
+                    for (int j = 0; j < i; j++) {
+                        if (listaElementos.get(j).getPalabra().equalsIgnoreCase(palabra) || listaElementos.get(j).getId().equalsIgnoreCase(id)) {
+                            duplicado = true;
+                            break;
+                        }
+                    }
+                    if (duplicado) {
+                        id = String.valueOf(rnd.nextInt(0, 100));
+                        palabra = new Faker().zodiac().sign();
+                        nuevoElemento = new Elemento(id, palabra, categoria);
+                    }
+                } while (duplicado);
+
+                listaElementos.add(nuevoElemento);
+            }
+         }
     }
 
     public List<Elemento> getListaElementos() {

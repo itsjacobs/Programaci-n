@@ -28,6 +28,7 @@ public class EntradaSalida {
         }
     }
     public static Elemento insertarElemento(){
+        boolean a = true;
         Scanner sc = new Scanner(System.in);
         System.out.println(Constantes.INSERTAR);
         String id = sc.nextLine();
@@ -39,7 +40,19 @@ public class EntradaSalida {
             System.out.println(e.getMessage());
         }
         String categoria = sc.nextLine();
+        while(a){
+            if(!categoria.equalsIgnoreCase("pokemon") &&
+                    !categoria.equalsIgnoreCase("futbol") &&
+                    !categoria.equalsIgnoreCase("zodiaco") &&
+                    !categoria.equalsIgnoreCase("LOL")){
+                System.out.println("Categoria inexistente. Introduce otra");
+                categoria = sc.nextLine();
 
+            }
+            else{
+                a = false;
+            }
+        }
         Elemento elemento = new Elemento(id,palabra,categoria);
         return elemento;
     }

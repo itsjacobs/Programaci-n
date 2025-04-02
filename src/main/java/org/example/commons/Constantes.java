@@ -10,7 +10,7 @@ public class Constantes {
                                     "\n-----------------------------------"+
                                     "\n1.MODO JUGADOR"+
                                     "\n2.MODO ADMINISTRADOR";
-    public static final String INSERTAR = "Introduzca id,palabra,categoria";
+    public static final String INSERTAR = "Introduzca id,palabra,categoria (ten en cuenta que las categorias son: Pokemon, futbol, lol y zodiaco)";
 
 
 }
