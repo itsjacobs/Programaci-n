@@ -9,20 +9,23 @@ public class Juego {
     private DaoElementos palabraAdivinar;
     private int vidas;
 
-    public Juego (String categoria) {
+    public Juego(String palabra) {
         Random rnd = new Random();
-        //this.palabraAdivinar =  palabraAdivinar.getListaCategoria(categoria).get(rnd.nextInt(0,palabraAdivinar.getListaCategoria(categoria).size())).getPalabra();
+
         vidas = 5;
     }
+
     public int getVidas() {
         return vidas;
     }
-    public void setVidas(int vidas){
+
+    public void setVidas(int vidas) {
         this.vidas = vidas;
-    }
+    }}
+
     /*public String palabraAdivinar(){
 
-    }*/
-    //public String validarLetras(String palabra){
+    }
+    public String validarLetras(String palabra){
 
-}
+}*/

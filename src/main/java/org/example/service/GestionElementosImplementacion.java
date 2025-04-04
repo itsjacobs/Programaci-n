@@ -39,6 +39,7 @@ public class GestionElementosImplementacion implements GestionElementos {
 
     @Override
     public List<Elemento> listar(String categoria) {
+
         List<Elemento> elementosCategoria = new ArrayList();
         for (Elemento elemento : daoElementos.getElementos()) {
             if (elemento.getCategoria().equalsIgnoreCase(categoria)) {
@@ -66,6 +67,7 @@ public class GestionElementosImplementacion implements GestionElementos {
     @Override
     public String getPalabraAdivinar(String categoria) {
         Random rnd = new Random();
+        
         return daoElementos.getListaCategoria(categoria).get(rnd.nextInt(0,getListaElementosCategoria(categoria).size())).getPalabra();
     }
 
