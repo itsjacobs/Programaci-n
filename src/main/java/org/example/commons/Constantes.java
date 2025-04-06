@@ -25,7 +25,9 @@ public class Constantes {
                     "\n9.Modificar el id de una palabra" +
                     "\n10Eliminar elemento";
 
-    public static final String INSERTAR = "Introduzca id,palabra,categoria (ten en cuenta que las categorias son: Pokemon, futbol, lol y zodiaco)";
+    public static final String INSERTAR1 = "Introduzca id";
+    public static final String INSERTAR2 = "Introduzca palabra";
+    public static final String INSERTAR3 = "Introduzca categoria (ten en cuenta que las categorias son: Pokemon, futbol, lol y zodiaco)";
 
 
 }

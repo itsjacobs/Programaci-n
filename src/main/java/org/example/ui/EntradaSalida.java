@@ -30,17 +30,27 @@ public class EntradaSalida {
     
     public Elemento insertarElemento(){
         boolean a = true;
+        boolean b = true;
         Scanner sc = new Scanner(System.in);
-        System.out.println(Constantes.INSERTAR);
+        System.out.println(Constantes.INSERTAR1);
         String id = sc.nextLine();
+        System.out.println(Constantes.INSERTAR2);
         String palabra = sc.nextLine();
-        //bucle AOJSDFJGBASDHGASHDVBHASVDJHASVBDh
-        try{
-            Comprobaciones.comprobarPalabra(palabra);
-        }
-        catch(ExcepcionCaracterEspecial e){
-            System.out.println(e.getMessage());
-        }
+        do {
+            b = false;
+            try {
+
+                Comprobaciones.comprobarPalabra(palabra);
+            } catch (ExcepcionCaracterEspecial e) {
+
+                System.out.println(e.getMessage());
+                b = true;
+            }
+            if (b) {
+                palabra = sc.nextLine();
+            }
+        } while (b);
+        System.out.println(Constantes.INSERTAR3);
         String categoria = sc.nextLine();
         while(a){
             if(!categoria.equalsIgnoreCase("pokemon") &&
@@ -107,6 +117,17 @@ public class EntradaSalida {
             }
         }
         return servicio.getPalabraAdivinar(categoria);
+    }
+    public void eliminarElemento() {
+        Scanner sc  = new Scanner(System.in);
+        System.out.println("Dime el id del elemento que quieres eliminar");
+        String id = sc.nextLine();
+        boolean resultado = servicio.eliminarElemento(id);
+        if (resultado) {
+            System.out.println("Elemento eliminado exitosamente.");
+        } else {
+            System.out.println("No se encontró ningún elemento con ese id.");
+        }
     }
 
 }

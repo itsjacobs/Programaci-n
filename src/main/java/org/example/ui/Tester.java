@@ -12,17 +12,21 @@ import java.util.Scanner;
 
 public class Tester {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         EntradaSalida es = new EntradaSalida();
         System.out.println(Constantes.BIENVENIDA);
         GestionElementos ge = new GestionElementosImplementacion();
+        System.out.println(es.palabraAdivinar());
+        es.mostrarListaElementos(ge);
+        es.eliminarElemento();
         es.mostrarListaElementos(ge);
         es.listaVacia();
+        System.out.println();
         ge.insertarElemento(es.insertarElemento());
         es.mostrarListaElementos(ge);
         es.listar();
         es.palabraAdivinar();
-        ge.eliminarElemento(sc.nextLine());
         ge.escribirFichero();
         es.mostrarListaElementos(ge);
 

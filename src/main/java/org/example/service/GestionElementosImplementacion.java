@@ -67,8 +67,14 @@ public class GestionElementosImplementacion implements GestionElementos {
     @Override
     public String getPalabraAdivinar(String categoria) {
         Random rnd = new Random();
+        List<Elemento> elementosCategoria = new ArrayList();
+        for (Elemento elemento : daoElementos.getElementos()) {
+            if (elemento.getCategoria().equalsIgnoreCase(categoria)) {
+                elementosCategoria.add(elemento);
+            }
+        }
         
-        return daoElementos.getListaCategoria(categoria).get(rnd.nextInt(0,getListaElementosCategoria(categoria).size())).getPalabra();
+        return elementosCategoria.get(rnd.nextInt(elementosCategoria.size())).getPalabra();
     }
 
     @Override
@@ -108,10 +114,11 @@ public class GestionElementosImplementacion implements GestionElementos {
     @Override
     public boolean eliminarElemento(String id) {
         boolean a = false;
-        List<Elemento> lista = getListaElementos();
-        for (int i = 0; i < lista.size(); i++) {
-            if(lista.get(i).getId().equalsIgnoreCase(id)){
-                lista.remove(i);
+        for (int i = 0; i < getListaElementos().size(); i++) {
+            if(getListaElementos().get(i).getId().equalsIgnoreCase(id)){
+                getListaElementos().remove(i);
+                a = true;
+                i--;
             }
         }
         return a;

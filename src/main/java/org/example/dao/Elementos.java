@@ -24,51 +24,52 @@ public class Elementos {
             listaElementos = new ArrayList<>();
             String[] CATEGORIAS2 = {"Futbol", "Pokemon", "LOL", "Zodiaco"};
             for (int i = 0; i < CATEGORIAS2.length; i++) {
-                    String categoria = CATEGORIAS2[i];
-                    for(int x = i*5; x <= ((i+1)*5-1);x++){
-                        String id = String.valueOf(rnd.nextInt(1, 100));
-                        String palabra = null;
-                        if(i==0){
-                            palabra = new Faker().football().teams();
-                        }else if(i==1){
-                            palabra = new Faker().pokemon().name();
-                        }else if (i==2){
-                            palabra = new Faker().leagueOfLegends().champion();
-                        }else{
-                            palabra = new Faker().zodiac().sign();
-                        }
-                        Elemento nuevoElemento = new Elemento(id, palabra, categoria);
-                        boolean duplicado;
-                        do {
-                            duplicado = false;
-                            for (int j = 0; j < x; j++) {
-                                if (listaElementos.get(j).getPalabra().equalsIgnoreCase(palabra) || listaElementos.get(j).getId().equalsIgnoreCase(id) && duplicado) {
-                                    duplicado = true;
-
-                                }
-                            }
-                            if (duplicado) {
-                                id = String.valueOf(rnd.nextInt(0, 100));
-                                if(i==0){
-                                    palabra = new Faker().football().teams();
-                                }else if(i==1){
-                                    palabra = new Faker().pokemon().name();
-                                }else if (i==2){
-                                    palabra = new Faker().leagueOfLegends().champion();
-                                }else{
-                                    palabra = new Faker().zodiac().sign();
-                                }
-                                nuevoElemento = new Elemento(id, palabra, categoria);
-                            }
-                        } while (duplicado);
-
-                        listaElementos.add(nuevoElemento);
-
+                String categoria = CATEGORIAS2[i];
+                for (int x = i * 5; x <= ((i + 1) * 5 - 1); x++) {
+                    String id = String.valueOf(rnd.nextInt(1, 100));
+                    String palabra = null;
+                    if (i == 0) {
+                        palabra = new Faker().football().teams();
+                    } else if (i == 1) {
+                        palabra = new Faker().pokemon().name();
+                    } else if (i == 2) {
+                        palabra = new Faker().leagueOfLegends().champion();
+                    } else {
+                        palabra = new Faker().zodiac().sign();
                     }
+                    Elemento nuevoElemento = new Elemento(id, palabra, categoria);
+                    boolean duplicado;
+                    do {
+                        duplicado = false;
+                        for (int j = 0; j < x; j++) {
+                            if (listaElementos.get(j).getPalabra().equalsIgnoreCase(palabra) || listaElementos.get(j).getId().equalsIgnoreCase(id) && duplicado) {
+                                duplicado = true;
+
+                            }
+                        }
+                        if (duplicado) {
+                            id = String.valueOf(rnd.nextInt(0, 100));
+                            if (i == 0) {
+                                palabra = new Faker().football().teams();
+                            } else if (i == 1) {
+                                palabra = new Faker().pokemon().name();
+                            } else if (i == 2) {
+                                palabra = new Faker().leagueOfLegends().champion();
+                            } else {
+                                palabra = new Faker().zodiac().sign();
+                            }
+                            nuevoElemento = new Elemento(id, palabra, categoria);
+                        }
+                    } while (duplicado);
+
+                    listaElementos.add(nuevoElemento);
+
+                }
             }
         }
 
     }
+
 
     public List<Elemento> getListaElementos() {
         return listaElementos;

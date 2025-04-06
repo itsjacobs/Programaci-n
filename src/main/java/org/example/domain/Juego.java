@@ -11,7 +11,6 @@ public class Juego {
 
     public Juego(String palabra) {
         Random rnd = new Random();
-
         vidas = 5;
     }
 
@@ -21,11 +20,10 @@ public class Juego {
 
     public void setVidas(int vidas) {
         this.vidas = vidas;
-    }}
-
-    /*public String palabraAdivinar(){
+    }
+    public void convertirPalabraAdivinar() {
+        String palabra;
 
     }
-    public String validarLetras(String palabra){
+}
 
-}*/
