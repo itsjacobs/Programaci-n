@@ -21,4 +21,6 @@ public interface GestionElementos {
     public boolean eliminarElemento(String id);
     //public boolean modificarCategoria(String id, String categoria) throws CategoriaException;
     public boolean modificarElemento(String id, String palabra);
+    public List<Elemento> getListaElementosPalabra(String palabra);
+    public List<Elemento> getListaElementosId(String Id);
 }

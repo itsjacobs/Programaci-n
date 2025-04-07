@@ -27,7 +27,7 @@ public class EntradaSalida {
             System.out.println(lista.get(i));
         }
     }
-    
+
     public Elemento insertarElemento(){
         boolean a = true;
         boolean b = true;
@@ -128,6 +128,19 @@ public class EntradaSalida {
         } else {
             System.out.println("No se encontró ningún elemento con ese id.");
         }
+    }
+    public List<Elemento> getListaElementosPalabra() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Dime que palabra tiene el elemento que quieres");
+        String palabra = sc.nextLine();
+        return servicio.getListaElementosPalabra(palabra);
+    }
+
+    public List<Elemento> getListaElementosId() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Dime que id tiene el elemento que quieres");
+        String id = sc.nextLine();
+        return servicio.getListaElementosId(id);
     }
 
 }

@@ -5,11 +5,11 @@ import org.example.domain.Elemento;
 import java.util.List;
 
 public interface DaoElementos {
-    public List<Elemento> getListaElementos();
     public boolean isEmptyListaElementos();
     public boolean insertaElemento(Elemento elemento);
     public boolean insertarElemento(String id, String palabra,String categoria);
     public void modificarLista(List<Elemento> lista);
+    public List<Elemento> getListaElementos();
     public List<Elemento> getElementos();
     public List<Elemento> getListaCategoria(String categoria);
     public List<Elemento> getListaPalabra(String palabra);

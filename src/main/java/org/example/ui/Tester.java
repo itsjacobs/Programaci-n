@@ -14,9 +14,42 @@ public class Tester {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        EntradaSalida es = new EntradaSalida();
+
         System.out.println(Constantes.BIENVENIDA);
         GestionElementos ge = new GestionElementosImplementacion();
+        EntradaSalida es = new EntradaSalida(ge);
+        int opc = sc.nextInt();
+        switch (opc){
+            case 1:
+                es.listaVacia();
+                break;
+            case 2:
+                es.mostrarListaElementos(ge);
+                break;
+            case 3:
+                es.listar();
+                break;
+            case 4:
+                es.getListaElementosPalabra();
+                break;
+            case 5:
+                es.getListaElementosId();
+                break;
+            case 6:
+                ge.insertarElemento(es.insertarElemento());
+                break;
+            case 7:
+
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                es.eliminarElemento();
+                break;
+        }
+        System.out.println(ge.getListaElementos());
         System.out.println(es.palabraAdivinar());
         es.mostrarListaElementos(ge);
         es.eliminarElemento();

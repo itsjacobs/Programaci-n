@@ -73,8 +73,8 @@ public class GestionElementosImplementacion implements GestionElementos {
                 elementosCategoria.add(elemento);
             }
         }
-        
-        return elementosCategoria.get(rnd.nextInt(elementosCategoria.size())).getPalabra();
+
+        return elementosCategoria.get(rnd.nextInt(0,elementosCategoria.size())).getPalabra();
     }
 
     @Override
@@ -128,5 +128,13 @@ public class GestionElementosImplementacion implements GestionElementos {
     @Override
     public void eliminarElemento(Elemento Elemento) {
         daoElementos.getListaElementos().remove(Elemento);
+    }
+
+    public List<Elemento> getListaElementosPalabra(String palabra) {
+        return daoElementos.getListaPalabra(palabra);
+    }
+
+    public List<Elemento> getListaElementosId(String Id) {
+        return daoElementos.getListaId(Id);
     }
 }
