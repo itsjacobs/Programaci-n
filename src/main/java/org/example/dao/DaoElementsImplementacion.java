@@ -46,10 +46,6 @@ public class DaoElementsImplementacion implements DaoElementos {
         return lista.getListaElementos();
     }
 
-    @Override
-    public void modificarLista(List<Elemento> listaElementos) {
-        lista.modificarLista(listaElementos);
-    }
 
     @Override
     public List<Elemento> getElementos() {
@@ -68,13 +64,14 @@ public class DaoElementsImplementacion implements DaoElementos {
     }
     @Override
     public List<Elemento> getListaPalabra(String palabra) {
-        List<Elemento> elementosPalabra = null;
-        for (Elemento elemento : lista.getListaElementos()){
-            if (elemento.getPalabra().equals(palabra)){
-                elementosPalabra.add(elemento);
+        List<Elemento> lista = new ArrayList<>();
+
+        for (Elemento elemento : lista) {
+            if (elemento.getPalabra().equalsIgnoreCase(palabra)) {
+                lista.add(elemento);
             }
         }
-        return elementosPalabra;
+        return lista;
     }
 
     @Override

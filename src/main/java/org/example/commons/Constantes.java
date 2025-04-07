@@ -3,6 +3,7 @@ package org.example.commons;
 
 public class Constantes {
     public static final String AHORCADO_FILE = "ahorcado.txt";
+    public static final String AHORCADO_FILE2 = "ahorcado2.txt";
     public static final String BIENVENIDA = "Vamos a mostrar el diccionario";
     public static final String[] CATEGORIAS = {"Futbol", "Pokemon", "LOL", "Zodiaco"};
     public static final String MENU1 = "-----------------------------------" +
@@ -20,10 +21,9 @@ public class Constantes {
                     "\n4.Buscar el elemento que contenga la palabra que quieras" +
                     "\n5.Buscar el elemento que contenga el id que quieras" +
                     "\n6.Insertar elemento" +
-                    "\n7.Modificar lista" +
-                    "\n8.Modificar la categoria de una palabra" +
-                    "\n9.Modificar el id de una palabra" +
-                    "\n10Eliminar elemento";
+                    "\n7.Modificar la categoria de una palabra" +
+                    "\n8.Modificar el id de una palabra" +
+                    "\n9.Eliminar elemento";
 
     public static final String INSERTAR1 = "Introduzca id";
     public static final String INSERTAR2 = "Introduzca palabra";

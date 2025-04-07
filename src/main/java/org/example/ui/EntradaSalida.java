@@ -143,4 +143,37 @@ public class EntradaSalida {
         return servicio.getListaElementosId(id);
     }
 
+    public void modificarCategoria(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Dime el id de la palabra cuya categoria quieras cambiar");
+        String id = sc.nextLine();
+        System.out.println("dime la categoria nueva: ");
+        String categoria = sc.nextLine();
+        boolean a = false;
+        do{
+            if (servicio.modificarCategoria(id, categoria)){
+                System.out.println("Categoria modificada exitosamente.");
+                a = true;
+            }else {
+                System.out.println("Id inexistente. Introduce otro");
+                id = sc.nextLine();
+            }
+        }while(!a);
+        a=false;
+        do{
+            if(!categoria.equalsIgnoreCase("pokemon") &&
+                    !categoria.equalsIgnoreCase("futbol") &&
+                    !categoria.equalsIgnoreCase("zodiaco") &&
+                    !categoria.equalsIgnoreCase("LOL")){
+                System.out.println("Categoria inexistente. Introduce otra");
+                categoria = sc.nextLine();
+
+            }
+            else{
+                a = true;
+            }
+        }while(!a);
+        servicio.modificarCategoria(id, categoria);
+    }
+
 }

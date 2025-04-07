@@ -3,9 +3,11 @@ package org.example.service;
 import org.example.commons.Constantes;
 import org.example.dao.DaoElementos;
 import org.example.dao.DaoElementsImplementacion;
+import org.example.dao.Elementos;
 import org.example.dao.Ficheros;
 import org.example.domain.Elemento;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -92,12 +94,34 @@ public class GestionElementosImplementacion implements GestionElementos {
 
     @Override
     public boolean escribirFicheroBinario() {
-        return false;
+        boolean a = false;
+        try{
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(Constantes.AHORCADO_FILE));
+            os.writeObject(getListaElementos());
+            a = true;
+            os.close();
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+        return a;
     }
 
     @Override
-    public boolean cargarFicheroBinario() {
-        return false;
+    public boolean cargarFicheroBinario(String fichero) {
+        fichero = Constantes.AHORCADO_FILE2;
+        List<Elemento> lista = null;
+        boolean a = false;
+        try{
+            ObjectInputStream os = new ObjectInputStream(new FileInputStream(fichero));
+            lista = (List<Elemento>) os.readObject();
+            a = true;
+            os.close();
+        }
+        catch(IOException | ClassNotFoundException e){
+            throw new RuntimeException(e);
+        }
+        return a;
     }
     @Override
     public boolean modificarElemento(String id, String palabra) {
@@ -124,6 +148,11 @@ public class GestionElementosImplementacion implements GestionElementos {
         return a;
     }
 
+    @Override
+    public boolean modificarCategoria(String id, String categoria) {
+        return daoElementos.modificarCategoria(id, categoria);
+    }
+
 
     @Override
     public void eliminarElemento(Elemento Elemento) {
@@ -137,4 +166,6 @@ public class GestionElementosImplementacion implements GestionElementos {
     public List<Elemento> getListaElementosId(String Id) {
         return daoElementos.getListaId(Id);
     }
+
+
 }

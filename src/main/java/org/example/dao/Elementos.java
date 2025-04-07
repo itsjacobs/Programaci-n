@@ -79,11 +79,6 @@ public class Elementos {
         listaElementos.clear();
     }
 
-    public void modificarLista(List<Elemento> listaElementos) {
-        vaciarListaElementos();
-        this.listaElementos.addAll(listaElementos);
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
