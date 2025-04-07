@@ -1,0 +1,20 @@
+72;Galatasaray;Futbol
+54;Juventus;Futbol
+18;Chelsea;Futbol
+21;Valencia CF;Futbol
+5;AC Milan;Futbol
+16;Dragonair;Pokemon
+11;Paras;Pokemon
+4;Nidorino;Pokemon
+82;Mankey;Pokemon
+54;Kadabra;Pokemon
+12;Volibear;LOL
+97;Zoe;LOL
+26;Orianna;LOL
+41;Twitch;LOL
+39;Rammus;LOL
+42;Leo;Zodiaco
+51;Pisces;Zodiaco
+61;Aquarius;Zodiaco
+64;Libra;Zodiaco
+64;maricon;pokemon
